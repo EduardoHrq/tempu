@@ -1,0 +1,89 @@
+:root{
+    --cyan: #0dcaf0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #222831f4;
+}
+
+.barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 2%;
+}
+
+.toggle{
+    width: 50px;
+    height: 50px;
+    padding: 20%;
+    transition: .5s;
+}
+
+.tg{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: start;
+}
+
+
+
+.menu{
+    margin: 0;
+    background-color: #222831;
+    width: 20%;
+    min-width: 200px;
+    padding: 1% 2%;
+    position: absolute;
+    top: 8%;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(50%);
+    transform-origin: top right;
+    transition: .5s;
+}
+
+.tg:hover .menu{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(100%);
+}
+
+.tg:hover .toggle{
+    transform: rotate(90deg);
+}
+
+.menu li{
+    list-style-type: none;
+    text-align: start;
+    margin: 4% 0;
+    
+}
+
+.item{
+    text-decoration: none;
+    padding: 2% 1%;
+    color: #EEEEEE;
+    width: 100%;
+    padding: 2% 2%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 35px 0 0 0 #393e46 inset;
+    transition: .5s;
+}
+
+.item:hover{
+    color: var(--cyan);
+    font-weight: bold;
+    box-shadow: 350px 0 0 0 #393e46 inset;
+}
