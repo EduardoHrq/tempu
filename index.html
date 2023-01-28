@@ -25,7 +25,7 @@
             <ul class="menu bg-dark rounded-4">
                 <li>
                     <input type="radio" name="tipo" id="relogio" class="radioTipo" value="1" checked>
-                    <label class="item rounded-3" for="relogio">
+                    <label class="item rounded-3" for="relogio" onclick="relogio()">
                         <img src="https://img.icons8.com/material/1024/0dcaf0/clock--v1.png" alt="" class="img-fluid me-3" width="10%">
                         Relógio
                     </label>
@@ -34,7 +34,7 @@
 
                 <li>
                     <input type="radio" name="tipo" id="alarme" class="radioTipo" value="2">
-                    <label class="item rounded-3" for="alarme">
+                    <label class="item rounded-3" for="alarme" onclick="">
                         <img src="https://img.icons8.com/material/1024/0dcaf0/alarm-clock--v1.png" alt="" class="img-fluid me-3" width="10%">
                         Alarme
                     </label>
@@ -44,7 +44,7 @@
                 <li>
                     
                     <input type="radio" name="tipo" id="cronometro" class="radioTipo" value="3">
-                    <label class="item rounded-3" for="cronometro">
+                    <label class="item rounded-3" for="cronometro" onclick="cronometro()">
                         <img src="https://img.icons8.com/material/1024/0dcaf0/time--v1.png" alt="" class="img-fluid  me-3" width="10%">
                     
                         Cronometro
@@ -56,7 +56,7 @@
                 <li>
 
                     <input type="radio" name="tipo" id="timer" class="radioTipo" value="4">
-                    <label class="item rounded-3" for="timer">
+                    <label class="item rounded-3" for="timer" onclick="timer()">
                         
                         <img src="https://img.icons8.com/sf-black-filled/1024/0dcaf0/empty-hourglass.png" alt="" class="img-fluid me-3" width="10%">
 
@@ -69,7 +69,7 @@
                 <li>
                     
                     <input type="radio" name="tipo" id="tipo_pomodoro" class="radioTipo" value="5">
-                    <label class="item rounded-3" for="tipo_pomodoro">
+                    <label class="item rounded-3" for="tipo_pomodoro" onclick="pomodoro()">
                         <img src="https://img.icons8.com/sf-black-filled/1024/0dcaf0/apple.png" alt="" class="img-fluid me-3" width="10%">
                         Pomodoro
                     </label>
@@ -85,73 +85,16 @@
                     </label>
                 
                 </li>
-
-                
-
-
               </ul>            
         </div>
 
     </nav>
 
-    <div class="area" >
+    <div class="area" id="area">
 
-        <!-- relogio -->
         <div class="content" id="c0">
-            <div class="tempo">
-                00:00:00
-            </div>
-            <div class="text">
-                <p>Horário de Brasília</p>
-            </div>
-        </div>
-
-        <!-- alarme -->
-        <div class="content" id="c1" hidden>
-            <div class="tempo">
-                00:00:00
-            </div>
-            <div class="buttons">
-                <button class="btn btn-primary rounded-pill bt">Start</button>
-                <button class="btn btn-light rounded-pill bt">Pause</button>
-                <button class="btn btn-warning rounded-pill bt">Volta</button>
-                <button class="btn btn-danger rounded-pill bt">Stop</button>
-            </div>
-        </div>
-
-        <!-- cronometro -->
-        <div class="content" hidden>
-            <div class="tempo">
-                00:00:00
-            </div>
-            <div class="buttons">
-                <button class="btn btn-primary rounded-pill bt">Start</button>
-                <button class="btn btn-light rounded-pill bt">Pause</button>
-                <button class="btn btn-warning rounded-pill bt">Volta</button>
-                <button class="btn btn-danger rounded-pill bt">Stop</button>
-            </div>
-        </div>
-
-        <!-- timer -->
-        <div class="content"hidden>
-            <div class="tempo">
-                00:00:00
-            </div>
-            <div class="buttons">
-                <div class="inputs">
-                    <input type="number" class="ipt rounded-3" placeholder="H">:
-                    <input type="number" class="ipt rounded-3" placeholder="M">:
-                    <input type="number" class="ipt rounded-3" placeholder="S">
-                </div>
-
-                <button class="btn btn-primary rounded-pill bt">Start</button>
-                <button class="btn btn-danger rounded-pill bt">Stop</button>
-            </div>
-        </div>
-
-        <div class="content" hidden>
-            <div class="opc">
-                <input type="radio" name="pomodoro" class="radio" id="pomodoro">
+            <div class="opc animate" id="opc_pomo">
+                <input type="radio" name="pomodoro" class="radio" id="pomodoro" checked>
                 <label class="label rounded-pill" for="pomodoro">Pomodoro</label>
 
                 <input type="radio" name="pomodoro" class="radio" id="pausa">
@@ -161,19 +104,52 @@
                 <label class="label rounded-pill" for="pausaL">Longa Pausa</label>
             </div>
             <div class="tempo">
-                00:00
+                    00:00:00
             </div>
-            <div class="buttons">
-                <button class="btn btn-primary rounded-pill bt">Start</button>
-                <button class="btn btn-light rounded-pill bt">Pause</button>
-                <button class="btn btn-warning rounded-pill bt">Pular</button>
+            <div class="controles">
+                <div class="text animate" id="txtR">
+                    <p>Horário de Brasília</p>
+                </div>
+                
+                <div class="buttons animate" id="controle1">
+                    <button class="btn btn-success rounded-pill bt">Start</button>
+                    <button class="btn btn-light rounded-pill bt">Pause</button>
+                    <button class="btn btn-warning rounded-pill bt">Volta</button>
+                    <button class="btn btn-danger rounded-pill bt">Stop</button>
+                </div>
+                
+                <div class="buttons animate" id="controle2">
+                    <div class="inputs">
+                        <input type="number" class="ipt rounded-3 bg-dark" placeholder="H">:
+                        <input type="number" class="ipt rounded-3 bg-dark" placeholder="M">:
+                        <input type="number" class="ipt rounded-3 bg-dark" placeholder="S">
+                    </div>
+    
+                    <button class="btn btn-success rounded-pill bt">Start</button>
+                    <button class="btn btn-danger rounded-pill bt">Stop</button>
+                </div>
+
+                <div class="buttons animate" id="controle3">
+                    <button class="btn btn-success rounded-pill bt">Start</button>
+                    <button class="btn btn-light rounded-pill bt">Pause</button>
+                    <button class="btn btn-warning rounded-pill bt">Pular</button>
+                </div>
             </div>
         </div>
+    
+        <a class="cardI bg-light rounded-pill" href="#explicacao">
+            Confira mais conteudos aqui
+        </a>
     </div>
 
-    <div class="informaçoes">
+    <div class="informacoes" id="explicacao">
         <p>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
 
+        <a href="#area" class="bg-light rounded-circle btSubir">
+            ↑
+        </a>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
