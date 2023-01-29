@@ -104,7 +104,23 @@
                 <label class="label rounded-pill" for="pausaL">Longa Pausa</label>
             </div>
             <div class="tempo">
-                    00:00:00
+                <div class="display">
+                    <div id="H_M">
+                        00
+                    </div>
+                </div>
+                <div class="display">:</div>
+                <div class="display">
+                    <div id="M_S">
+                        00
+                    </div>
+                </div>
+                <div class="display">:</div>
+                <div class="display">
+                    <div id="S_Ms">
+                        00
+                    </div>
+                </div>
             </div>
             <div class="controles">
                 <div class="text animate" id="txtR">
@@ -112,10 +128,10 @@
                 </div>
                 
                 <div class="buttons animate" id="controle1">
-                    <button class="btn btn-success rounded-pill bt">Start</button>
-                    <button class="btn btn-light rounded-pill bt">Pause</button>
-                    <button class="btn btn-warning rounded-pill bt">Volta</button>
-                    <button class="btn btn-danger rounded-pill bt">Stop</button>
+                    <button class="btn btn-success rounded-pill bt" onclick="startCron()">Start</button>
+                    <button class="btn btn-light rounded-pill bt" onclick="pauseCron()">Pause</button>
+                    <button class="btn btn-warning rounded-pill bt" onclick="volta()">Volta</button>
+                    <button class="btn btn-danger rounded-pill bt" onclick="resetCron()">Stop</button>
                 </div>
                 
                 <div class="buttons animate" id="controle2">
