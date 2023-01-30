@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
 :root{
     --cyan: #0dcaf0;
 }
@@ -7,6 +9,8 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    font-family: 'Roboto';
+    letter-spacing: .05rem;
 }
 
 body{
@@ -24,6 +28,11 @@ body{
     z-index: 20;
     left: 0;
     top: 0;
+    font-family: 'Roboto';
+}
+
+.titulo{
+    font-size: 2vw;
 }
 
 .toggle{
@@ -136,6 +145,7 @@ body{
     width: 100%;
     font-size: 10vw;
     transition: .5s;
+    font-family: 'Roboto', sans-serif;
 }
 
 .display{
@@ -194,13 +204,16 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .label{
     color: #fff;
-    margin: 0 3%;
     padding: 1% 2%;
     transition: .5s;
+    margin: 0 2%;
+    width: 15%;
+    text-align: center;
 }
 
 .label:hover{

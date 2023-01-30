@@ -22,6 +22,8 @@ function esconderControles(nome1, nome2, nome3){
 
 function zerarRelogio(){
     clearInterval(relogioI);
+    document.getElementById('SumirHora').style.display = 'flex';
+    document.getElementById('fPoint').style.display= 'block';
     num.horas.innerHTML = '00'
     num.minutos.innerHTML = '00'
     num.segundos.innerHTML = '00'
@@ -35,6 +37,9 @@ function relogio(){
     controles.ct3_1.style.opacity = '0';
 
     document.getElementById('txtR').style.opacity = '1';
+
+    document.getElementById('SumirHora').style.display = 'flex';
+    document.getElementById('fPoint').style.display= 'block';
 
     relogioI = setInterval(displayTime, 1000)
 
@@ -84,6 +89,9 @@ function pomodoro(){
 
     zerarRelogio()
 
+    document.getElementById('SumirHora').style.display = 'none';
+    document.getElementById('fPoint').style.display= 'none';
+
 }
 
 function displayTime() {
@@ -121,6 +129,7 @@ let timerInterval;
 
 function startCron() {
     startTime = new Date();
+    document.getElementById('startCron').disabled = true;
     timerInterval = setInterval(updateCron, 10);
   }
   function updateCron() {
@@ -178,19 +187,18 @@ function resetCron() {
     clearInterval(timerInterval);
     elapsedTime = 0;
     displayCron();
+    document.getElementById('startCron').disabled = false;
 }
 
+var fimTimer;
 function startTimer(){
     let Vtimer = {
         horas: document.getElementById('hr').value,
         minutos: document.getElementById('mt').value,
         segundos: document.getElementById('sc').value
     }
-    setInterval(() => {
-        if(Vtimer.horas == 0 && Vtimer.minutos == 0 && Vtimer.segundos == -1){
-            clearInterval()
-            alert('O tempo acabou')
-        }
+    document.getElementById('startTimer').disabled = true;
+    fimTimer = setInterval(function() {
         if(Vtimer.segundos == 0 && Vtimer.minutos > 0){
             Vtimer.minutos -= 1;
             Vtimer.segundos = 60;
@@ -200,11 +208,29 @@ function startTimer(){
             Vtimer.horas -= 1
             Vtimer.segundos = 60
         }
+        if(Vtimer.horas == 0 && Vtimer.minutos == 0 && Vtimer.segundos == 0){
+            stopTimer()
+        } else {
+            Vtimer.segundos -= 1;
 
-        Vtimer.segundos -= 1;
+            Vtimer.horas < 10 ? num.horas.innerHTML = '0' + Vtimer.horas : num.horas.innerHTML = Vtimer.horas;
+            Vtimer.minutos < 10 ? num.minutos.innerHTML = '0' + Vtimer.minutos : num.minutos.innerHTML = Vtimer.minutos;
+            Vtimer.segundos < 10 ? num.segundos.innerHTML = '0' + Vtimer.segundos : num.segundos.innerHTML = Vtimer.segundos;
+        }
 
-        Vtimer.horas < 10 ? num.horas.innerHTML = '0' + Vtimer.horas : num.horas.innerHTML = Vtimer.horas;
-        Vtimer.minutos < 10 ? num.minutos.innerHTML = '0' + Vtimer.minutos : num.minutos.innerHTML = Vtimer.minutos;
-        Vtimer.segundos < 10 ? num.segundos.innerHTML = '0' + Vtimer.segundos : num.segundos.innerHTML = Vtimer.segundos;
-    }, 100);
+        
+    }, 1000);
+}
+
+function stopTimer(){
+    clearInterval(fimTimer)
+    num.horas.innerHTML = '00';
+    num.minutos.innerHTML = '00';
+    num.segundos.innerHTML = '00';
+    document.getElementById('startTimer').disabled = false;
+    alert('Timer Finalizado')
+}
+
+function pomoTimer(){
+
 }
