@@ -135,6 +135,7 @@ body{
     letter-spacing: .3rem;
     width: 100%;
     font-size: 10vw;
+    transition: .5s;
 }
 
 .display{

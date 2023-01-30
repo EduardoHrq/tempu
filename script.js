@@ -179,4 +179,32 @@ function resetCron() {
     elapsedTime = 0;
     displayCron();
 }
-  
+
+function startTimer(){
+    let Vtimer = {
+        horas: document.getElementById('hr').value,
+        minutos: document.getElementById('mt').value,
+        segundos: document.getElementById('sc').value
+    }
+    setInterval(() => {
+        if(Vtimer.horas == 0 && Vtimer.minutos == 0 && Vtimer.segundos == -1){
+            clearInterval()
+            alert('O tempo acabou')
+        }
+        if(Vtimer.segundos == 0 && Vtimer.minutos > 0){
+            Vtimer.minutos -= 1;
+            Vtimer.segundos = 60;
+        }
+        if(Vtimer.minutos == 0 && Vtimer.horas > 0){
+            Vtimer.minutos = 59
+            Vtimer.horas -= 1
+            Vtimer.segundos = 60
+        }
+
+        Vtimer.segundos -= 1;
+
+        Vtimer.horas < 10 ? num.horas.innerHTML = '0' + Vtimer.horas : num.horas.innerHTML = Vtimer.horas;
+        Vtimer.minutos < 10 ? num.minutos.innerHTML = '0' + Vtimer.minutos : num.minutos.innerHTML = Vtimer.minutos;
+        Vtimer.segundos < 10 ? num.segundos.innerHTML = '0' + Vtimer.segundos : num.segundos.innerHTML = Vtimer.segundos;
+    }, 100);
+}
