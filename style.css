@@ -289,3 +289,17 @@ body{
     justify-content: center;
     font-size: 150%;
 }
+
+.informacoes h2{
+    color: var(--cyan);
+}
+
+.firstATexto{
+    display: flex;
+    color: rgba(255, 255, 255, 0.978);
+}
+
+.textos1{
+    width: 75%;
+    text-align: justify;
+}
